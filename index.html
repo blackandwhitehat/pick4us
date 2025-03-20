@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5227998229720934" crossorigin="anonymous"></script>
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16774836795">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-16774836795');
+</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <title>Pick4.us - Group Consensus Tool</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦆</text></svg>">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Body Styling */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f4f7fa;
+            color: #333;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+            flex-direction: column;
+        }
+
+        /* Theme Selector */
+        .theme-selector {
+            display: flex;
+            gap: 10px;
+            position: relative;
+            margin-top: -10px;
+            margin-left: auto;
+            margin-bottom: 15px;
+            z-index: 10;
+        }
+
+        .theme-option {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .theme-option:hover {
+            transform: scale(1.1);
+        }
+
+        /* Theme Colors */
+        .default-theme { background-color: #f4f7fa; border: 1px solid #ddd; }
+        .dark-theme { background-color: #1e1e1e; }
+        .bright-theme { background-color: #fbe29f; }
+
+        /* Container */
+        .container {
+            max-width: 500px;
+            width: 100%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Headings */
+        h1 {
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        h2, h3 {
+            color: #34495e;
+            margin-top: 20px;
+        }
+
+        h2 + div {
+            margin-top: 15px;
+        }
+
+        /* Paragraph Styling */
+        p.description {
+            font-size: 1em;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            transition: color 0.3s;
+        }
+
+        /* Responsive Image */
+        .description img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        /* Bold Labels with Added Spacing */
+        label {
+            display: block;
+            font-size: 1em;
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 15px;
+            margin-top: 20px;
+            transition: color 0.3s;
+        }
+
+        /* Form Elements */
+        input[type="number"],
+        input[type="text"],
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        input[type="number"]:focus,
+        input[type="text"]:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            border: none;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Option List Styling */
+        ul#optionsList {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        ul#optionsList li {
+            padding: 10px;
+            background-color: #ecf0f1;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: all 0.5s ease-out;
+        }
+
+        ul#optionsList li:hover {
+            background-color: #bdc3c7;
+        }
+
+        /* Final Selection Styling */
+        #finalSelection {
+            font-size: 1.5em;
+            color: #27ae60;
+            margin-top: 20px;
+        }
+
+        /* Social Sharing Buttons */
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .share-buttons button {
+            background-color: #3498db;
+            border-radius: 4px;
+            padding: 10px 15px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .share-buttons button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Hidden Ad Space */
+        .ad-space {
+            display: none;
+        }
+
+        /* Animation Classes */
+        .fade-out {
+            opacity: 0;
+            transform: translateX(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .rotate-out {
+            transform: rotate(360deg);
+            opacity: 0;
+            transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+        }
+        .zoom-out {
+            transform: scale(0.1);
+            opacity: 0;
+            transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+        }
+        .slide-up {
+            transform: translateY(-20px);
+            opacity: 0;
+            transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            h2, h3, p.description {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Theme Selector (Positioned at top right of the page, outside of the main container) -->
+    <div class="theme-selector">
+        <div class="theme-option default-theme" onclick="setTheme('default')"></div>
+        <div class="theme-option dark-theme" onclick="setTheme('dark')"></div>
+        <div class="theme-option bright-theme" onclick="setTheme('bright')"></div>
+    </div>
+
+    <div class="container">
+        <h1 id="title">Pick4.us</h1>
+        <p class="description" id="intro-description">
+            <img src="pickles.jfif" alt="Pickles the decision duck">
+            <br><br>
+            Quack, quack! Can’t decide what to eat, watch, or play? <br><br>Let me, Pickles the Decision Duck, lend a wing! 🦆 <br><br>
+            I’ll help you and your flock settle on the best choice, one elimination at a time. Whether it’s dinner, movie night, or game time, I’ll guide you through a fun, fair process so everyone gets their say. Just gather up your options, pick 'em off one by one, and we’ll see which one’s left standing as your group’s top choice!
+        </p>
+
+        <!-- Initial Setup Section -->
+        <div id="game-setup">
+            <label>What are we picking?</label>
+            <input type="text" id="pickingItem" placeholder="Ex: dinner, games, movies, activities">
+            <label>Number of Participants?</label>
+            <input type="number" id="numPlayers" min="2" placeholder="Enter number of participants">
+            <label>Number of Options?</label>
+            <input type="number" id="numOptions" min="1" value="2" placeholder="Options each participant can enter">
+            <button onclick="startGame()">Help Us Decide</button>
+        </div>
+
+        <!-- Player Setup Section -->
+        <div id="player-setup" style="display: none;">
+            <h2>Customize Participant Names</h2>
+            <div id="playerNamesInput"></div>
+            <button onclick="submitPlayerNames()">Continue</button>
+        </div>
+
+        <!-- Selection Mode Section -->
+        <div id="selection-mode" style="display: none;">
+            <h2>Select Elimination Mode</h2>
+            <p class="description" id="mode-description">
+                <strong>Choose your mode:</strong><br><br>
+                <strong>Round Robin:</strong> Each participant takes turns eliminating one option until only one choice remains.<br><br>
+                <strong>Random:</strong> Participants are chosen at random to eliminate an option until just one remains as the group’s final decision.
+            </p>
+            <button onclick="setSelectionMode('roundRobin')">Round Robin (Recommended)</button>
+            <button onclick="setSelectionMode('random')">Random</button>
+        </div>
+
+        <!-- Player Options Prompt Section -->
+        <div id="player-prompt" style="display: none;">
+            <h3><span id="currentPlayerName"></span>, Enter Your Options for <span id="pickingItemDisplay"></span></h3>
+            <div id="additionalOptionText" style="display: none; margin-top: 10px;">As the last participant, please enter an additional option so everyone has an equal chance in elimination.</div>
+            <div id="optionsInput" style="margin-top: 15px;"></div>
+            <button onclick="submitPlayerOptions()">Submit Options</button>
+        </div>
+
+        <!-- Gameplay Section -->
+        <div id="gameplay" style="display: none;">
+            <h3>It's <span id="currentPlayerTurn"></span>'s turn to eliminate an option for <span id="pickingItemDisplayGameplay"></span></h3>
+            <ul id="optionsList"></ul>
+        </div>
+
+        <!-- Final Selection Display -->
+        <div id="finalSelection" style="display: none;"></div>
+
+        <!-- Sharing Buttons and Back Button -->
+        <div class="share-buttons" id="shareButtons" style="display: none;">
+            <button onclick="shareOnFacebook()">Share on Facebook</button>
+            <button onclick="shareOnX()">Share on X</button>
+        </div>
+        <button id="backButton" style="display: none;" onclick="resetGame()">Back to Main</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
